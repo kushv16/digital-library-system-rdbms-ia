@@ -8,12 +8,12 @@
                     <h5 class="card-title">{{ book.title }}</h5>
                     <p class="card-text"><i>{{ book.author }}</i></p>
                     <div class="d-flex justify-content-between">
-                        <a class="btn btn-primary btn-read-book" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        {% comment %} <a class="btn btn-primary btn-read-book" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Know More..
-                        </a>
+                        </a> {% endcomment %}
                         <a href={{book.book_pdf.url}} class="btn btn-primary btn-read-book" target="_blank">View PDF..</a>
                     </div>
-                    <div class="collapse" id="collapseExample">
+                    {% comment %} <div class="collapse" id="collapseExample">
                         <div class="card card-body" style="margin:10px;border:none">
                         <div class="d-flex justify-content-between">
                             <span class="card-text"><b>Edition</b>: {{book.edition}}</span>
@@ -22,7 +22,7 @@
                         <br>
                         <p class="card-text"><b>Description</b>: {{book.description}}</p>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         {% endfor %}
