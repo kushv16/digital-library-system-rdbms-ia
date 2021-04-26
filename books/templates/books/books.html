@@ -1,0 +1,33 @@
+{% extends 'books/base.html' %}
+{% block content %}
+    <div class="books-grid" style="margin-top:30px;">
+        {% for book in books  %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" style="height: 350px; padding: 3px;" src={{ book.image.url }} alt="Preview Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text"><i>{{ book.author }}</i></p>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-primary btn-read-book" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Know More..
+                        </a>
+                        <a href={{book.book_pdf.url}} class="btn btn-primary btn-read-book" target="_blank">View PDF..</a>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body" style="margin:10px;border:none">
+                        <div class="d-flex justify-content-between">
+                            <span class="card-text"><b>Edition</b>: {{book.edition}}</span>
+                            <span class="card-text"><b>Branch</b>: {{book.branch}}</span>
+                        </div>
+                        <br>
+                        <p class="card-text"><b>Description</b>: {{book.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+
+

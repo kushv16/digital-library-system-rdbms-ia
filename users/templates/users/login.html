@@ -1,0 +1,42 @@
+{% extends 'books/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block headtag %}
+    <head>
+        <title>Login Page</title>
+    </head>
+{% endblock %}
+
+{% block content %}
+    <div class="content-section p-50" style="width: 500px; margin: 30px auto;">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-1">Login</legend>
+                {% if messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                    {% for message in messages %}
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group text-center">
+                <button class="btn btn-police" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3 text-center">
+            <small class="text-muted">
+                Do You Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+            </small>
+        </div>
+        {% comment %}
+        <div class="pt-3 text-center">
+            <small class="text-muted">
+                Forgot Password? <a class="ml-2" href="{% url 'reset_password' %}">Reset Password</a>
+            </small>
+        </div> 
+        {% endcomment %}
+    </div>
+{% endblock content %}
